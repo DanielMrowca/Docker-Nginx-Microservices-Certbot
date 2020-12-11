@@ -107,6 +107,21 @@ We will use Certbot with Nginx configuration which is an implementation of the A
 `sudo apt-get install python-certbot-nginx`  
 `sudo certbot --nginx`  
 
+UPDATE: installing Certbot for Nginx on Ubuntu 20.04
+
+`sudo apt update && sudo apt install certbot python-certbot-nginx`
+
+If you get an error "python-certbot-nginx has no installation candidate" then try run the following command:
+`sudo apt install certbot python3-certbot-nginx`
+
+`sudo certbot --nginx`
+
+
 After running all commands, the wizard will ask for an email address to notify you when certificate is close to expiry and then ask for the server.  
 Now if you go to `http://mr0fka.cloudapp.azure.com` it should automiticaly redirect to `HTTPS`.
+
+# 4. Auto Renewal
+As Let’s Encrypt certs expire after 90 days, they need to be checked for renewal periodically.
+To test that this renewal process is working correctly, you can run:
+`sudo certbot renew --dry-run`
 
