@@ -46,7 +46,7 @@ server {
 }                                                            
 
  # API Gateway
- location /hive/api/ {
+ location /api/ {
    proxy_pass http://localhost:5000/api/; 
 }
 
